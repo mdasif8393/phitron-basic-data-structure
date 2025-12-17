@@ -53,5 +53,28 @@ int main()
     }
     cout << endl;
 
+    //* Type 6: (replace(v.begin(),v.end(),value,replace_value)) Replace all the value with replace_value. Not under a vector.
+    // replace all 2 with 22
+    vector<int> v4 = {1, 2, 3, 2, 4, 2, 6, 7, 2};
+    replace(v4.begin() + 2, v4.end() - 1, 2, 22);
+
+    for (int x : v4)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    //* (find(v.begin(),v.end(),V)) Find the value V.Not under a vector.
+    //  find modifier return an iterator. If desire value do not found then iterator point in end(), otherwise point in found value
+    auto it = find(v4.begin(), v4.end(), 4);
+    if (it == v4.end())
+    {
+        cout << "Not Found";
+    }
+    else
+    {
+        cout << "Found";
+    }
+
     return 0;
 }
