@@ -53,7 +53,8 @@ int main()
     }
     cout << endl;
 
-    //* Type 6: (replace(v.begin(),v.end(),value,replace_value)) Replace all the value with replace_value. Not under a vector.
+    //* Type 6: (replace(v.begin(),v.end(),value_want_to_replace,replace_value))
+    // Replace all the value with replace_value. Not under a vector.
     // replace all 2 with 22
     vector<int> v4 = {1, 2, 3, 2, 4, 2, 6, 7, 2};
     replace(v4.begin() + 2, v4.end() - 1, 2, 22);

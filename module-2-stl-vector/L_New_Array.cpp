@@ -12,18 +12,27 @@ int main()
     {
         cin >> v1[i];
     }
-
     vector<int> v2(n);
     for (int i = 0; i < n; i++)
     {
         cin >> v2[i];
     }
 
-    v2.insert(v2.begin() + v2.size(), v1.begin(), v1.end());
-    for (int x : v2)
+    vector<int> v3;
+
+    for (int i = 0; i < n; i++)
     {
-        cout << x << " ";
+        v3.push_back(v2[i]);
     }
 
+    for (int i = 0; i < n; i++)
+    {
+        v3.push_back(v1[i]);
+    }
+
+    for (int i = 0; i < v3.size(); i++)
+    {
+        cout << v3[i] << " ";
+    }
     return 0;
 }
