@@ -3,21 +3,13 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-
-    vector<string> v(n);
-
-    for (int i = 0; i < n; i++)
+    vector<int> v3 = {10, 20, 30, 40, 50};
+    v3.insert(v3.begin() + 3, 111);
+    for (int x : v3)
     {
-        cin.ignore();
-        getline(cin, v[i]);
+        cout << x << " ";
     }
-
-    for (int i = 0; i < n; i++)
-    {
-        cout << v[i] << endl;
-    }
+    cout << endl;
 
     return 0;
 }
