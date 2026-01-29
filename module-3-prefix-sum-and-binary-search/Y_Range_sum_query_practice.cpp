@@ -29,7 +29,7 @@ int main()
         cin >> l >> r;
 
         int sum = 0;
-        if (l = 1)
+        if (l == 1)
         {
             sum = pre[r];
         }
