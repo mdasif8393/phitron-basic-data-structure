@@ -3,7 +3,6 @@ using namespace std;
 
 class Node
 {
-
 public:
     int val;
     Node *next;
@@ -12,14 +11,19 @@ public:
     {
         this->val = val;
         this->next = NULL;
-    };
+    }
 };
 
 int main()
 {
-    Node a(10), b(20), c(30);
+    Node *head = new Node(10);
+    Node *a = new Node(20);
+    Node *b = new Node(30);
 
-    a.next = &b, b.next = &c;
+    head->next = a;
+    a->next = b;
 
-    cout << b.next->val;
+    cout << head->next->val;
+
+    return 0;
 }
