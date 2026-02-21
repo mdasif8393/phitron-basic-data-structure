@@ -11,25 +11,33 @@ public:
     {
         this->val = val;
         this->next = NULL;
+    }
+};
+
+void insert_at_any_position(Node *&head, int pos, int val)
+{
+    Node *newnode = new Node(val);
+
+    Node *temp = head;
+    for (int i = 1; i < pos; i++)
+    {
+        temp = temp->next;
     };
+
+    newnode->next = temp->next;
+    temp->next = newnode;
 };
 
-void insert_at_head(Node *&head, int val) // get node as pointer reference and value
+void print_linked_list(Node *&head)
 {
-    Node *newnode = new Node(val); // make a new node with value
-    newnode->next = head;          // save head pointer address to new node next.
-    head = newnode;                // now head is newnode
-};
 
-void print_linked_list(Node *head)
-{
     Node *temp = head;
 
     while (temp != NULL)
     {
         cout << temp->val << endl;
         temp = temp->next;
-    }
+    };
 };
 
 int main()
@@ -41,9 +49,8 @@ int main()
     head->next = a;
     a->next = b;
 
-    insert_at_head(head, 100); // send 1st node and value that will be added
-    insert_at_head(head, 200);
-    insert_at_head(head, 300);
+    insert_at_any_position(head, 2, 100);
+
     print_linked_list(head);
 
     return 0;

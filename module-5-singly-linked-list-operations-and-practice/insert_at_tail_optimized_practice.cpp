@@ -14,11 +14,19 @@ public:
     };
 };
 
-void insert_at_head(Node *&head, int val) // get node as pointer reference and value
+void insert_at_tail(Node *&head, Node *&tail, int val)
 {
-    Node *newnode = new Node(val); // make a new node with value
-    newnode->next = head;          // save head pointer address to new node next.
-    head = newnode;                // now head is newnode
+    Node *newnode = new Node(val); // make a new node
+
+    if (head == NULL) // check if head is empty then head will be the new node
+    {
+        head = newnode;
+        tail = newnode;
+        return;
+    }
+
+    tail->next = newnode;
+    tail = newnode;
 };
 
 void print_linked_list(Node *head)
@@ -29,21 +37,21 @@ void print_linked_list(Node *head)
     {
         cout << temp->val << endl;
         temp = temp->next;
-    }
+    };
 };
 
 int main()
 {
     Node *head = new Node(10);
     Node *a = new Node(20);
-    Node *b = new Node(30);
+    Node *tail = new Node(30);
 
     head->next = a;
-    a->next = b;
+    a->next = tail;
 
-    insert_at_head(head, 100); // send 1st node and value that will be added
-    insert_at_head(head, 200);
-    insert_at_head(head, 300);
+    insert_at_tail(head, tail, 100); // call insert at tail function
+    insert_at_tail(head, tail, 200);
+
     print_linked_list(head);
 
     return 0;
