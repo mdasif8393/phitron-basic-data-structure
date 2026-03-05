@@ -32,7 +32,7 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
 void sort_linked_list(Node *head)
 {
 
-    for (Node *i = head; i->next != NULL; i = i->next)
+    for (Node *i = head; i->next != NULL; i = i->next) //
     {
         for (Node *j = i->next; j != NULL; j = j->next)
         {
