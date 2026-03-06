@@ -17,33 +17,43 @@ public:
 
 void print_linked_list(Node *head)
 {
-    Node *temp = head;
-    int count = 0;
+    int found = 0;
 
-    while (temp != NULL)
+    for (Node *i = head; i->next != NULL; i = i->next)
     {
-        count++;
-        temp = temp->next;
+        for (Node *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val == j->val)
+            {
+                found = 1;
+            }
+        };
+    };
+
+    if (found == 1)
+    {
+        cout << "YES";
     }
-    cout << count;
+    else
+    {
+        cout << "NO";
+    }
 };
 
 int main()
 {
-    Node *head = new Node(2);
-    Node *a = new Node(1);
-    Node *b = new Node(5);
-    Node *c = new Node(3);
-    Node *d = new Node(4);
-    Node *e = new Node(8);
-    Node *f = new Node(9);
+    Node *head = new Node(5);
+    Node *a = new Node(4);
+    Node *b = new Node(8);
+    Node *c = new Node(6);
+    Node *d = new Node(2);
+    Node *e = new Node(1);
 
     head->next = a;
     a->next = b;
     b->next = c;
     c->next = d;
     d->next = e;
-    e->next = f;
 
     print_linked_list(head);
 
