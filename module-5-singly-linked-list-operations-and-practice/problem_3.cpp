@@ -17,55 +17,43 @@ public:
 
 void print_linked_list(Node *head)
 {
-    int count = 0;
+    int isAscending = 1;
 
-    for (Node *i = head; i != NULL; i = i->next)
+    for (Node *i = head; i->next != NULL; i = i->next)
     {
-        count++;
+        for (Node *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val > j->val)
+            {
+                isAscending = 0;
+            }
+        };
     };
 
-    int div = count / 2;
-    int rem = count % 2;
-
-    if (rem != 0)
+    if (isAscending == 1)
     {
-        Node *temp = head;
-
-        for (int i = 1; i <= div; i++)
-        {
-            temp = temp->next;
-        }
-        cout << temp->val;
+        cout << "YES";
     }
     else
     {
-        Node *temp = head;
-
-        for (int i = 1; i < div; i++)
-        {
-            temp = temp->next;
-        }
-        cout << temp->val << " " << temp->next->val;
+        cout << "NO";
     }
-
-    // cout << div << " " << rem;
-    ;
 };
 
 int main()
 {
     Node *head = new Node(1);
-    Node *a = new Node(2);
-    Node *b = new Node(3);
-    Node *c = new Node(4);
-    Node *d = new Node(5);
-    Node *e = new Node(6);
+    Node *a = new Node(5);
+    Node *b = new Node(6);
+    Node *c = new Node(8);
+    Node *d = new Node(9);
+    // Node *e = new Node(4);
 
     head->next = a;
     a->next = b;
     b->next = c;
     c->next = d;
-    d->next = e;
+    // d->next = e;
 
     print_linked_list(head);
 
