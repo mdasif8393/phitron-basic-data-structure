@@ -16,20 +16,20 @@ public:
     }
 };
 
-void insert_at_head(Node *&head, Node *&tail, int val) // get head & value
+void insert_at_tail(Node *&head, Node *&tail, int val)
 {
-    Node *new_node = new Node(val); // create a new node with value
+    Node *new_node = new Node(val);
 
-    if ((head == NULL)) // when head is null then head & tail will be new node
+    if (head == NULL) // when linked list is empty then head & tail will be new node
     {
         head = new_node;
         tail = new_node;
         return;
     }
 
-    new_node->next = head; // new node next will be head pointer
-    head->prev = new_node; // head previous will be new node pointer
-    head = new_node;       // make new node as head
+    tail->next = new_node;
+    new_node->prev = tail;
+    tail = new_node;
 };
 
 // print from head
@@ -58,7 +58,8 @@ int main()
 
     tail->prev = a;
 
-    insert_at_head(head, tail, 100);
+    insert_at_tail(head, tail, 100);
+    insert_at_tail(head, tail, 200);
     print_forward(head);
 
     return 0;

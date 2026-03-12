@@ -16,20 +16,21 @@ public:
     }
 };
 
-void insert_at_head(Node *&head, Node *&tail, int val) // get head & value
+void insert_at_any_position(Node *head, int idx, int val)
 {
-    Node *new_node = new Node(val); // create a new node with value
+    Node *new_node = new Node(val); // make  a new node which we want to insert
 
-    if ((head == NULL)) // when head is null then head & tail will be new node
+    Node *temp = head;
+
+    for (int i = 1; i < idx; i++)
     {
-        head = new_node;
-        tail = new_node;
-        return;
+        temp = temp->next; // go to previous node where we want to insert new node
     }
 
-    new_node->next = head; // new node next will be head pointer
-    head->prev = new_node; // head previous will be new node pointer
-    head = new_node;       // make new node as head
+    temp->next->prev = new_node; // connect next node previous pointer with new node
+    new_node->next = temp->next; // connect new node next pointer with next node
+    temp->next = new_node;       // connect temp next with new node
+    new_node->prev = temp;       // connect new node previous with temp
 };
 
 // print from head
@@ -58,7 +59,7 @@ int main()
 
     tail->prev = a;
 
-    insert_at_head(head, tail, 100);
+    insert_at_any_position(head, 2, 100);
     print_forward(head);
 
     return 0;
