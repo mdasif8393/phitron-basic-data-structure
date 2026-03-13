@@ -23,9 +23,9 @@ void delete_at_head(Node *&head, Node *&tail)
     head = head->next;        // make next node as head
     delete delete_node;       // now delete previous head
 
-    if (head == NULL) // check if head next node is Null?
+    if (head == NULL) // check if previous (existing) head next node is Null?
     {
-        tail = NULL; // if head next node is null then make tail null
+        tail = NULL; // if previous head next (existing) node is null then make tail null
         return;
     };
 
