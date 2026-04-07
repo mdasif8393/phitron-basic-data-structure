@@ -10,5 +10,15 @@ int main()
     //* myList.end().Pointer to the last element.
     cout << *l.end() - 1;
 
+    for (int val : l)
+    {
+        cout << val << " ";
+    }
+
+    for (auto it = l.begin(); it != l.end(); it++)
+    {
+        // cout << *it << " ";
+    }
+
     return 0;
 }
