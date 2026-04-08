@@ -53,14 +53,27 @@ void compare_linked_lists(Node *head_1, Node *head_2)
         temp_2 = temp_2->next;
     }
 
-    if (temp_1 != temp_2)
+    if (count_1 != count_2)
     {
         cout << "NO";
         return;
     }
-    else
+
+    temp_1 = head_1;
+    temp_2 = head_2;
+
+    while (temp_1 != NULL && temp_2 != NULL)
     {
+        if (temp_1->val != temp_2->val)
+        {
+            cout << "NO";
+            return;
+        }
+        temp_1 = temp_1->next;
+        temp_2 = temp_2->next;
     }
+
+    cout << "YES";
 };
 
 void display_linked_list(Node *head)
