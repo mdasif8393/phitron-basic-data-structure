@@ -40,6 +40,25 @@ public:
 
 int main()
 {
+    myStack st;
+
+    //* input stack from user
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        st.push(x);
+    }
+
+    //* Show Output
+    while (!st.empty()) // loop continue when stack is not empty
+    {
+        cout << st.top() << endl; // print top
+        st.pop();                 // delete top value
+    }
 
     return 0;
 }
