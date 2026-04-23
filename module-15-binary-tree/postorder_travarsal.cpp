@@ -16,15 +16,15 @@ public:
     }
 };
 
-void postorder(Node *root)
+void inorder(Node *root)
 {
     if (root == NULL)
     {
         return;
     }
 
-    postorder(root->left);
-    postorder(root->right);
+    inorder(root->left);
+    inorder(root->right);
     cout << root->val << " ";
 };
 
@@ -43,7 +43,7 @@ int main()
     b->left = d;
     b->right = e;
 
-    postorder(root);
+    inorder(root);
 
     return 0;
 }
