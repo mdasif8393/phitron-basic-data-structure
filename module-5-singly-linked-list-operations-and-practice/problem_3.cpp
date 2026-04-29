@@ -15,47 +15,57 @@ public:
     };
 };
 
-void print_linked_list(Node *head)
+void middle_element_linked_list(Node *head)
 {
-    int isAscending = 1;
+    int count = 0;
 
-    for (Node *i = head; i->next != NULL; i = i->next)
-    {
-        for (Node *j = i->next; j != NULL; j = j->next)
-        {
-            if (i->val > j->val)
-            {
-                isAscending = 0;
-            }
-        };
-    };
+    Node *temp = head;
 
-    if (isAscending == 1)
+    while (temp != NULL)
     {
-        cout << "YES";
+        count++;
+        temp = temp->next;
+    }
+
+    int div = count / 2;
+    int rem = count % 2;
+
+    if (rem > 0)
+    {
+        div++;
+    }
+
+    Node *temp2 = head;
+    for (int i = 1; i < div; i++)
+    {
+        temp2 = temp2->next;
+    }
+    if (rem == 0)
+    {
+        cout << temp2->val << " " << temp2->next->val;
     }
     else
     {
-        cout << "NO";
+        cout << temp2->val;
     }
 };
 
 int main()
 {
     Node *head = new Node(1);
-    Node *a = new Node(5);
-    Node *b = new Node(6);
-    Node *c = new Node(8);
-    Node *d = new Node(9);
-    // Node *e = new Node(4);
+    Node *a = new Node(2);
+    Node *b = new Node(3);
+    Node *c = new Node(4);
+    Node *d = new Node(5);
+    Node *e = new Node(6);
 
     head->next = a;
     a->next = b;
     b->next = c;
     c->next = d;
-    // d->next = e;
+    d->next = e;
 
-    print_linked_list(head);
+    middle_element_linked_list(head);
 
     return 0;
 }

@@ -1,2 +1,2 @@
 
-    Node *temp = head;
+        cout << temp->val;
