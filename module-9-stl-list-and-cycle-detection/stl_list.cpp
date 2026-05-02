@@ -11,6 +11,10 @@ int main()
 
     //* list<type>myList(N,V); //Construct a list with N elements and the value will be V.
     list<int> l3(10, 3);
+    for (int val : l3)
+    {
+        cout << val << " ";
+    }
 
     //* use iterator to print linked list
     for (auto it = l3.begin(); it != l3.end(); it++)
