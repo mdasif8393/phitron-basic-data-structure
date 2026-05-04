@@ -19,8 +19,15 @@ int main()
 
     while (!st.empty())
     {
-        cout << st.top() << endl;
+        cout << st.top() << " ";
         st.pop();
     }
     return 0;
 }
+
+// // Input
+// 5
+// 10 20 30 40 50
+
+//     // Output
+//     50 40 30 20 10

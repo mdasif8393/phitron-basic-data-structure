@@ -62,3 +62,7 @@ int main()
 
     return 0;
 }
+
+// Input
+//  5
+//  10 20 30 40 50
